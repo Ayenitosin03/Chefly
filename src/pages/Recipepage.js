@@ -24,8 +24,14 @@ function Recipepage() {
       const handleSubmit = (e) => {
         e.preventDefault();
         if (mode ==="Add"){
-        const grubs = JSON.parse(localStorage.getItem("grubs")) || [{}];
-        
+        const grubs = JSON.parse(localStorage.getItem("grubs")) || [];
+        const grub = grubs.find(
+            (item) => item.recipe.toLowerCase() === inputs.recipe.toLowerCase()
+          );
+        if (grub) {
+            alert("You can't add this Ingredients again");
+            return;
+          }
         
         const data = {
           foodName: inputs.foodName,
@@ -41,7 +47,7 @@ function Recipepage() {
           recipe: "",
         })
       }else{
-        const grubs = JSON.parse(localStorage.getItem("grubs")) || [{}];
+        const grubs = JSON.parse(localStorage.getItem("grubs")) || [];
         const grub = grubs.find((item) => item.recipe.toLowerCase() === recipeEdit.recipe.toLowerCase());
         let index = grubs.indexOf(grub);
         grubs[index]=inputs;
@@ -56,7 +62,7 @@ function Recipepage() {
        }
       };
      const handleEditButton=(recipe)=>{
-       const grubs = JSON.parse(localStorage.getItem("grubs")) || [{}];
+       const grubs = JSON.parse(localStorage.getItem("grubs")) || [];
        const grub = grubs.find((item) => item.recipe.toLowerCase() === recipe.recipe.toLowerCase());
        let index = grubs.indexOf(grub);
        if(index!== -1){
@@ -69,7 +75,7 @@ function Recipepage() {
 
      const handleDeleteButton =(recipe)=>{
    
-        const grubs = JSON.parse(localStorage.getItem("grubs")) || [{}];
+        const grubs = JSON.parse(localStorage.getItem("grubs")) || [];
         const grub = grubs.find((item) => item.recipe.toLowerCase() === recipe.recipe.toLowerCase());
         console.log(grubs.indexOf(grub))
         let index = grubs.indexOf(grub);
