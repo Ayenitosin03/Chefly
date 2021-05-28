@@ -1,0 +1,28 @@
+td,th{
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+
+
+
+th{
+    background-color: #ddd ;
+}
+#tab{
+    display: inline-block;
+  width: 380px;
+  height: 350px;
+  margin: 20px auto;
+  overflow: auto;
+  /* -moz-box-shadow: #555 0 0 8px;
+  -webkit-box-shadow: #555 0 0 8px;
+  -o-box-shadow: #555 0 0 8px;
+  box-shadow: #555 0 0 8px; */
+   
+    
+}
+
+table{
+    overflow-x: auto;
+}
